@@ -1,0 +1,12 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "mateluxS6@gmail.com"
+        sender_name: "Matelux_FOSUserBundle"
+
+framework:
+    # ...
+    templating:
+        engines: ['twig']
