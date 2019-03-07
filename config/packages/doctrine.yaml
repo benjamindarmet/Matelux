@@ -8,6 +8,11 @@ parameters:
 doctrine:
     dbal:
         # configure these for your database server
+        dbname: bdarmet
+        host: dbserver
+        port: 3306
+        user: bdarmet
+        password:	matelux
         driver: 'pdo_mysql'
         server_version: '5.7'
         charset: utf8mb4
