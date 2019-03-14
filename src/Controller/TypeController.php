@@ -6,7 +6,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-use App\Entity\Product;
+use App\Entity\Type;
 
 class TypeController extends Controller
 {
@@ -19,7 +19,7 @@ class TypeController extends Controller
       $newType = new Type("testType");
 
       // tell Doctrine you want to (eventually) save the Product (no queries yet)
-      $entityManager->persis($newType);
+      $entityManager->persist($newType);
 
       // actually executes the queries (i.e. the INSERT query)
       $entityManager->flush();
