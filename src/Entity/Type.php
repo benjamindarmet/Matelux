@@ -1,5 +1,9 @@
 <?php
-// src/Entity/Matelas.php
+/**
+* @Entity
+* @Table(name="type")
+*/
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -14,15 +18,27 @@ class Type{
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   protected $id;
-  private $type;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  *
+  * @var string
+  */
+  protected $type;
 
   /**
   * Constructeur pour la création d'un nouveau type de matelas
-  * @ORM\type correspond au nom du nouveau type qui doit être ajouté.
   */
-  public function __construct($type){
-    $this->type = $type;
+  public function __construct(){
   }
+
+
+  //Getter & Setter
+
+  public function setType($typeName){
+    $this->type = $typeName;
+  }
+
 
   public function getId(){
     return $ths->id;
@@ -31,5 +47,6 @@ class Type{
   public function getType(){
     return $this->type;
   }
+
 }
 ?>

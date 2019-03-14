@@ -16,7 +16,8 @@ class TypeController extends Controller
     public function index()
     {
       $entityManager = $this->getDoctrine()->getManager();
-      $newType = new Type("testType");
+      $newType = new Type();
+      $newType->setType("testType");
 
       // tell Doctrine you want to (eventually) save the Product (no queries yet)
       $entityManager->persist($newType);
