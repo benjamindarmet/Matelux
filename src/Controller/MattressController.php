@@ -16,7 +16,7 @@ class MattressController extends Controller
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $mattress = new Mattress(0, 'test', 'test', 'test', 0, 2019-03-14);
+        $mattress = new Mattress(0, 2, 'test', 'test', 0, '2019-03-14');
 
         $entityManager->persist($mattress);
 

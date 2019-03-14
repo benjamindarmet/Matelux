@@ -15,24 +15,72 @@ class Patient{
    */
   protected $id;
 
-  private $NIP;
-  private $scannerDate;
-  private $MEPdate;
-  private $nb_seances;
-  private $FTRdate;
-  private $note;
-  private $associatedMatelas;
-  private $treatmentType;
 
-  public function __construct($NIP, $scannerDate, $MEPdate, $nb_seances, $FTRdate, $note, $associatedMatelas, $treatmentType){
-    $this->NIP = $NIP;
-    $this->scannerDate = $scannerDate;
-    $this->MEPdate = $MEPdate;
-    $this->nb_seances = $nb_seances;
-    $this->FTRdate = $FTRdate;
-    $this->note = $note;
-    $this->associatedMatelas = $associatedMatelas;
-    $this->treatmentType = $treatmentType;
+  /**
+    * @ORM\Column(type="integer", length=11)
+    *
+    * @var integer
+    */
+  private $nip;
+
+  /**
+    * @ORM\Column(type="string", length=255)
+    *
+    * @var string
+    */
+  private $date_first_scanner;
+
+  /**
+    * @ORM\Column(type="string", length=255)
+    *
+    * @var string
+    */
+  private $mep;
+
+  /**
+    * @ORM\Column(type="integer", length=11)
+    *
+    * @var integer
+    */
+  private $number_seance;
+
+  /**
+    * @ORM\Column(type="string", length=255)
+    *
+    * @var string
+    */
+  private $ftr;
+
+  /**
+    * @ORM\Column(type="string", length=255)
+    *
+    * @var string
+    */
+  private $comment;
+
+  /**
+    * @ORM\Column(type="integer", length=11)
+    *
+    * @var integer
+    */
+  private $mattress;
+
+  /**
+    * @ORM\Column(type="integer", length=11)
+    *
+    * @var integer
+    */
+  private $type;
+
+  public function __construct($nip, $date_first_scanner, $mep, $number_seance, $ftr, $comment, $mattress, $type){
+    $this->nip = $nip;
+    $this->date_first_scanner = $date_first_scanner;
+    $this->mep = $mep;
+    $this->number_seance = $number_seance;
+    $this->ftr = $ftr;
+    $this->comment = $comment;
+    $this->mattress = $mattress;
+    $this->type = $type;
   }
 
   public function addPatient(){
