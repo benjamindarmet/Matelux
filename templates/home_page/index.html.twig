@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomePageController!{% endblock %}
+
+{% block body %}
+<style>
+	body {background-color: yellow;}
+	.tableCSS {position : absolute; top : 200px; left : 200px; background-color: #e1ccc7;
+border-collapse : collapse; text-align : center;}
+	td {border : 1px #000000 solid; padding : 10px;}
+	.tdTexte {color : #000000;}
+	.tdDate {color : #000000;}
+	.tdEntier {color : #000000;}
+</style>
+
+<div>
+	<table class = "tableCSS">
+		<tr>
+			<td class = "tdEntier">NIP</td>
+			<td class = "tdDate">Premier scanner</td>
+			<td class = "tdDate">MEP</td>
+			<td class = "tdEntier">Nbr séance</td>
+			<td class = "tdDate">FTR</td>
+			<td class = "tdTexte">Commentaire</td>
+			<td class = "tdEntier">N° matelas</td>
+			<td class = "tdEntier">Type matelas</td>
+		</tr>
+		{% for c in customers %}
+		<tr>
+			<td class = "tdEntier">{{ c.nip }}</td>
+			<td class = "tdDate">{{ c.date_first_scanner }}</td>
+			<td class = "tdDate">{{ c.mep }}</td>
+			<td class = "tdEntier">{{ c.number_seance }}</td>
+			<td class = "tdDate">{{ c.ftr }}</td>
+			<td class = "tdTexte">{{ c.comment }}</td>
+			<td class = "tdEntier">{{ c.mattress }}</td>
+			<td class = "tdEntier">{{ c.type }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

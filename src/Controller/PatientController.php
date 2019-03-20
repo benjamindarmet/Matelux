@@ -17,7 +17,7 @@ class PatientController extends Controller
     {
       $entityManager = $this->getDoctrine()->getManager();
 
-      $patient = new Patient(13, '1999-10-10', '1997-09-01', 50, '2050-10-20', 'teste comment', 20, 10);
+      $patient = new Patient(455, '1999-10-10', '1997-09-01', 50, '2050-10-20', 'teste comment', 20, 10);
 
       $entityManager->persist($patient);
 

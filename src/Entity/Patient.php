@@ -5,72 +5,65 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Repository\PatientRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PatientRepository")
  */
 class Patient{
   /**
-   * @ORM\Id
-   * @ORM\Column(type="integer")
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-  protected $id;
-
-
-  /**
+    * @ORM\Id
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  private $nip;
+  public $nip;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  private $date_first_scanner;
+  public $date_first_scanner;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  private $mep;
+  public $mep;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  private $number_seance;
+  public $number_seance;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  private $ftr;
+  public $ftr;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  private $comment;
+  public $comment;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  private $mattress;
+  public $mattress;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  private $type;
+  public $type;
 
   public function __construct($nip, $date_first_scanner, $mep, $number_seance, $ftr, $comment, $mattress, $type){
     $this->nip = $nip;
