@@ -1,11 +1,4 @@
 # app/config/config.yml
-fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-    from_email:
-        address: "mateluxS6@gmail.com"
-        sender_name: "Matelux_FOSUserBundle"
 
 framework:
     # ...
