@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <style>
+    .rectangleMillieu{
+    position: absolute;
+    top : 10%;
+    width: 110%;
+    height:80%;
+    margin-left : -10px;
+    background:#E9EAEB;
+    }
+    .img{
+      width: 5px;
+      height: 5px;
+    }
+    </style>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Matelux!{% endblock %}</title>
+
+        <img src="https://promess.sante-aquitaine.fr/sites/default/files/public/2017-02/logoCHU.png" alt="Logo du CHU"/>
+        <div class = "rectangleMillieu">
+        </div>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
 </html>
