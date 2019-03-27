@@ -20,17 +20,25 @@
       height: 80%;
       background-color: #E9EAEB;
     }
+    {% block style %}
+    {% endblock %}
   </style>
   {% endblock %}
   <head>
+    {% block head %}
     <meta charset = "UTF-8">
     <title> {% block title %}Matelux !{% endblock %}</title>
     <img src="https://promess.sante-aquitaine.fr/sites/default/files/public/2017-02/logoCHU.png" alt="Logo du CHU"/>
     <h1> CHU Bordeaux - Service de Radiothérapie </h1>
+    {% endblock %}
   </head>
 
   <body>
     <div class = "centerPage">
+      {% block centerPage %}
+      {% endblock %}
+      {% block body %}
+      {% endblock %}
     </div>
   </body>
 </html>
