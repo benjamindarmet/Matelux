@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  {% block stylesheets %}
   <style>
     h1{
       text-align: center;
@@ -20,12 +21,12 @@
       background-color: #E9EAEB;
     }
   </style>
+  {% endblock %}
   <head>
     <meta charset = "UTF-8">
     <title> {% block title %}Matelux !{% endblock %}</title>
     <img src="https://promess.sante-aquitaine.fr/sites/default/files/public/2017-02/logoCHU.png" alt="Logo du CHU"/>
     <h1> CHU Bordeaux - Service de Radiothérapie </h1>
-        {% block stylesheets %}{% endblock %}
   </head>
 
   <body>
