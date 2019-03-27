@@ -1,16 +1,15 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser{
+class User {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -23,9 +22,8 @@ class User extends BaseUser{
      */
     protected $username;
 
-    public function __construct(){
-        parent::__construct();
-        // your own logic
+    public function __construct($username){
+        $this->username = $username;
     }
 
     /**
