@@ -18,9 +18,43 @@ class User extends BaseUser{
      */
     protected $id;
 
-    public function __construct()
-    {
+    /**
+     * @var string
+     */
+    protected $username;
+
+    public function __construct(){
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getId(){
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUsername(){
+        return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(){
+        return (string) $this->getUsername();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setUsername($username){
+        $this->username = $username;
+
+        return $this;
     }
 }
