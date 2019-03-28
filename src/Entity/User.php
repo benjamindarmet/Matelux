@@ -7,30 +7,32 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="user")
  */
 class User {
+
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
     protected $id;
 
     /**
+     * @ORM\Column(name = "username", type="string", length=255)
      * @var string
      */
     protected $username;
 
-    public function __construct($username){
-        $this->username = $username;
-    }
-
     /**
-     * {@inheritdoc}
-     */
-    public function getId(){
-        return $this->id;
+    * @ORM\Column(name="ip", type="string", length=255)
+    * @var string
+    */
+    protected $ip;
+
+    public function __construct($username, $ip){
+        $this->username = $username;
+        $this->ip = $ip;
     }
 
     /**
@@ -38,6 +40,13 @@ class User {
      */
     public function getUsername(){
         return $this->username;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getIp(){
+        return $this->ip;
     }
 
     /**
@@ -52,7 +61,18 @@ class User {
      */
     public function setUsername($username){
         $this->username = $username;
-
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setIp($ip){
+        $this->ip = $ip;
+        return $this;
+    }
+
+    public function getId(){
+      return $this->id;
     }
 }
