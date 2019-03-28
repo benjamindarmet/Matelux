@@ -1,16 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomePageController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 <style>
-	body {background-color: yellow;}
-	.tableCSS {position : absolute; top : 200px; left : 200px; background-color: #e1ccc7;
+	.tableCSS {position : absolute; top : 35%; left : 25%; background-color: #e1ccc7;
 border-collapse : collapse; text-align : center;}
 	td {border : 1px #000000 solid; padding : 10px;}
 	.tdTexte {color : #000000;}
 	.tdDate {color : #000000;}
 	.tdEntier {color : #000000;}
+
+	 .addPatient{
+	 background-color : pink;
+	 padding : 1%;
+	 width : 20%;
+	 text-align : left;
+	 }
 </style>
 
 <div>
@@ -27,16 +33,23 @@ border-collapse : collapse; text-align : center;}
 		</tr>
 		{% for c in customers %}
 		<tr>
-			<td class = "tdEntier">{{ c.nip }}</td>
-			<td class = "tdDate">{{ c.date_first_scanner }}</td>
-			<td class = "tdDate">{{ c.mep }}</td>
-			<td class = "tdEntier">{{ c.number_seance }}</td>
-			<td class = "tdDate">{{ c.ftr }}</td>
-			<td class = "tdTexte">{{ c.comment }}</td>
-			<td class = "tdEntier">{{ c.mattress }}</td>
-			<td class = "tdEntier">{{ c.type }}</td>
+			<td class = "tdEntier">{{ c.getNip() }}</td>
+			<td class = "tdDate">{{ c.getDateFirstScanner() }}</td>
+			<td class = "tdDate">{{ c.getMep() }}</td>
+			<td class = "tdEntier">{{ c.getNumberSeance() }}</td>
+			<td class = "tdDate">{{ c.getFtr() }}</td>
+			<td class = "tdTexte">{{ c.getComment() }}</td>
+			<td class = "tdEntier">{{ c.getMattress() }}</td>
+			<td class = "tdEntier">{{ c.getType() }}</td>
 		</tr>
 		{% endfor %}
 	</table>
+
+  <div class = "addPatient">
+	{{ form_start(formulaireAddPatient) }}
+				{{ form_widget(formulaireAddPatient) }}
+	{{ form_end(formulaireAddPatient) }}
+	</div>
+
 </div>
 {% endblock %}

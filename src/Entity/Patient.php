@@ -14,58 +14,141 @@ class Patient{
     *
     * @var integer
     */
-  public $nip;
+  protected $nip;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  public $date_first_scanner;
+  protected $date_first_scanner;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  public $mep;
+  protected $mep;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  public $number_seance;
+  protected $number_seance;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  public $ftr;
+  protected $ftr;
 
   /**
     * @ORM\Column(type="string", length=255)
     *
     * @var string
     */
-  public $comment;
+  protected $comment;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  public $mattress;
+  protected $mattress;
 
   /**
     * @ORM\Column(type="integer", length=11)
     *
     * @var integer
     */
-  public $type;
+  protected $type;
 
-  public function __construct($nip, $date_first_scanner, $mep, $number_seance, $ftr, $comment, $mattress, $type){
+  public function getNip()
+  {
+    return $this->nip;
+  }
+
+  public function setNip($nip)
+  {
+      $this->nip = $nip;
+  }
+
+
+  public function getDateFirstScanner()
+  {
+    return $this->date_first_scanner;
+  }
+
+  public function setDate_First_Scanner($date_first_scanner)
+  {
+      $this->date_first_scanner = $date_first_scanner;
+  }
+
+  public function getMep()
+  {
+      return $this->mep;
+  }
+
+  public function setMep($mep)
+  {
+      $this->mep = $mep;
+  }
+
+
+  public function getNumberSeance()
+  {
+      return $this->number_seance;
+  }
+
+  public function setNumber_Seance($number_seance)
+  {
+      $this->number_seance = $number_seance;
+  }
+
+  public function getFtr()
+  {
+    return $this->ftr;
+  }
+
+  public function setFtr($ftr)
+  {
+      $this->ftr = $ftr;
+  }
+
+  public function getComment()
+  {
+    return $this->comment;
+  }
+
+  public function setComment($comment)
+  {
+      $this->comment = $comment;
+  }
+
+  public function getMattress()
+  {
+      return $this->mattress;
+  }
+
+  public function setMattress($mattress)
+  {
+      $this->mattress = $mattress;
+  }
+
+
+  public function getType()
+  {
+      return $this->type;
+  }
+
+  public function setType($type)
+  {
+      $this->type = $type;
+  }
+
+  /*public function __construct($nip, $date_first_scanner, $mep, $number_seance, $ftr, $comment, $mattress, $type){
     $this->nip = $nip;
     $this->date_first_scanner = $date_first_scanner;
     $this->mep = $mep;
@@ -74,15 +157,8 @@ class Patient{
     $this->comment = $comment;
     $this->mattress = $mattress;
     $this->type = $type;
-  }
+  }*/
 
-  public function addPatient(){
-
-  }
-
-  public function deletePatient(){
-
-  }
 
 }
 ?>
