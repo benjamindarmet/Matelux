@@ -8,6 +8,9 @@
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+
+  font-family: "Arial", Arial, Verdana, Halvetica, Trebuchet MS;
+  font-size: 20px;
   }
 {% endblock %}
 
@@ -16,7 +19,7 @@
   <span>
     <form action="{{ path('welcome') }}" method="post">
       <label for="username">Identité :</label>
-      <input type="text" id="username" name="_username" value="" />
+      <input type="text" id="username" name="_username"/>
 
       {#
           If you want to control the URL the user
@@ -24,7 +27,7 @@
           <input type="hidden" name="_target_path" value="/account" />
       #}
 
-      <button type="submit">Entrer</button>
+      <button type="submit" name="envoi">Entrer</button>
     </form>
     </span>
   </div>

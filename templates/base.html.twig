@@ -2,24 +2,36 @@
 <html>
   {% block stylesheets %}
   <style>
+
     h1{
       text-align: center;
+      font-family: Arial;
     }
-    img {
-      position:fixed;
+
+    .logo{
+      position: fixed;
       left: 20px;
       top: -10px;
-      width: 12%;
-      height: 12%;
+      width: 11%;
+      height: 13%;
     }
+
+    .backgroundimage{
+        position: relative;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+    }
+
     .centerPage {
       position: fixed;
       bottom: 10%;
       right: 0;
       width: 100%;
       height: 80%;
-      background-color: #E9EAEB;
+      /*background-color: #E9EAEB;*/
     }
+
     {% block style %}
     {% endblock %}
   </style>
@@ -28,17 +40,25 @@
     {% block head %}
     <meta charset = "UTF-8">
     <title> {% block title %}Matelux !{% endblock %}</title>
-    <img src="https://promess.sante-aquitaine.fr/sites/default/files/public/2017-02/logoCHU.png" alt="Logo du CHU"/>
+
+        {% block logo %}
+        <img class = "logo" src="https://promess.sante-aquitaine.fr/sites/default/files/public/2017-02/logoCHU.png" alt="Logo du CHU"/>
+        {% endblock %}
+
     <h1> CHU Bordeaux - Service de Radiothérapie </h1>
     {% endblock %}
+
   </head>
 
   <body>
     <div class = "centerPage">
-      {% block centerPage %}
-      {% endblock %}
-      {% block body %}
-      {% endblock %}
+        {% block centerPage %}
+            {% block backgroundimage %}
+            <img class="backgroundimage" src="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/d/2/b/d2bbd49fa9_107004_radiotherapie-rayon.jpg" alt="image de fond"/>
+            {% endblock %}
+        {% endblock %}
+        {% block body %}
+        {% endblock %}
     </div>
   </body>
 </html>

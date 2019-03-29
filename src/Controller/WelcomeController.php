@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\User;
+
 class WelcomeController extends Controller
 {
     /**
@@ -12,8 +14,37 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return $this->render('welcome/index.html.twig', [
-            'controller_name' => "Test",
-        ]);
+      $entityManager = $this->getDoctrine()->getManager();
+
+      if(isset($_POST['envoi'])){
+        $username = $_POST['_username'];
+
+        $newUser = new User($username, $this->getRealIpAddr());
+
+        $entityManager->persist($newUser);
+
+        $entityManager->flush();
+      }
+
+      return $this->render('welcome/index.html.twig', [
+        'controller_name' => 'WelcomeController',
+      ]);
     }
+
+    function getRealIpAddr() {
+      if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+      {
+        $ip=$_SERVER['HTTP_CLIENT_IP'];
+      }
+      elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+      {
+        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+      }
+      else
+      {
+        $ip=$_SERVER['REMOTE_ADDR'];
+      }
+      return $ip;
+  }
+
 }
