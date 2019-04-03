@@ -26,26 +26,22 @@ class Type{
   */
   protected $type;
 
-  /**
-  * Constructeur pour la création d'un nouveau type de matelas
-  */
-  public function __construct(){
-  }
-
-
   //Getter & Setter
-
-  public function setType($typeName){
-    $this->type = $typeName;
-  }
-
 
   public function getId(){
     return $this->id;
   }
 
+  public function setId($id){
+    $this->id = $id;
+  }
+
   public function getType(){
     return $this->type;
+  }
+
+  public function setType($typeName){
+    $this->type = $typeName;
   }
 
 }

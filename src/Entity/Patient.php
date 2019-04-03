@@ -81,7 +81,7 @@ class Patient{
     return $this->date_first_scanner;
   }
 
-  public function setDate_First_Scanner($date_first_scanner)
+  public function setDateFirstScanner($date_first_scanner)
   {
       $this->date_first_scanner = $date_first_scanner;
   }
@@ -102,7 +102,7 @@ class Patient{
       return $this->number_seance;
   }
 
-  public function setNumber_Seance($number_seance)
+  public function setNumberSeance($number_seance)
   {
       $this->number_seance = $number_seance;
   }
