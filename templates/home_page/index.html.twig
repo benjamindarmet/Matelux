@@ -11,11 +11,12 @@ border-collapse : collapse; text-align : center;}
 	.tdDate {color : #000000;}
 	.tdEntier {color : #000000;}
 
-	 .addPatient{
+	 #addPatient{
 	 background-color : pink;
-	 padding : 1%;
-	 width : 20%;
 	 text-align : left;
+	 position: absolute;
+	 top: 40px; left: 40px;
+   display: none;
 	 }
 </style>
 
@@ -45,11 +46,21 @@ border-collapse : collapse; text-align : center;}
 		{% endfor %}
 	</table>
 
-  <div class = "addPatient">
-	{{ form_start(formulaireAddPatient) }}
-				{{ form_widget(formulaireAddPatient) }}
-	{{ form_end(formulaireAddPatient) }}
+  <div id = "addPatient">
+		{{ form_start(formulaireAddPatient) }}
+		{{ form_widget(formulaireAddPatient) }}
+		{{ form_end(formulaireAddPatient) }}
 	</div>
-
 </div>
+
+<button class="favorite styled" onclick="myFunction()">
+	Add to favorites
+</button>
+
+<script>
+function myFunction() {
+	document.getElementById("addPatient").style["display"] =  "inline-block";
+}
+</script>
+
 {% endblock %}
