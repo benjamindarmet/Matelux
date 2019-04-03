@@ -18,6 +18,16 @@ border-collapse : collapse; text-align : center;}
 	 top: 40px; left: 40px;
    display: none;
 	 }
+
+   .addMatelas{
+   position : absolute;
+   top : 1%;
+   left : 50%;
+   background-color : pink;
+   padding : 1%;
+   width : 20%;
+   text-align : left;
+   }
 </style>
 
 <div>
@@ -50,6 +60,12 @@ border-collapse : collapse; text-align : center;}
 		{{ form_start(formulaireAddPatient) }}
 		{{ form_widget(formulaireAddPatient) }}
 		{{ form_end(formulaireAddPatient) }}
+	</div>
+
+	<div class = "addMatelas">
+	{{ form_start(formulaireAddMatelas) }}
+							{{ form_widget(formulaireAddMatelas) }}
+	{{ form_end(formulaireAddMatelas) }}
 	</div>
 </div>
 
