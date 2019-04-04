@@ -60,7 +60,7 @@ class HomePageController extends Controller
           ->add('mattress', IntegerType::class)
           ->add('type', IntegerType::class)
 
-          ->add('Ajouter patient', SubmitType::class, ['label' => 'Add Patient'])
+          ->add('Ajouter patient', SubmitType::class, ['label' => 'Valider'])
           ->getForm();
 
       $form->handleRequest($request);
