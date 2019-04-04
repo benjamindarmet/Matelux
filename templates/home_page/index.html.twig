@@ -11,11 +11,12 @@ border-collapse : collapse; text-align : center;}
 	.tdDate {color : #000000;}
 	.tdEntier {color : #000000;}
 
-	 .addPatient{
+	 #addPatient{
 	 background-color : pink;
-	 padding : 1%;
-	 width : 20%;
 	 text-align : left;
+	 position: absolute;
+	 top: 40px; left: 40px;
+   display: none;
 	 }
 
 	 .disconnectButton{
@@ -25,6 +26,16 @@ border-collapse : collapse; text-align : center;}
 			width: 8%;
 			height: 5%;
 	 }
+
+   .addMatelas{
+   position : absolute;
+   top : 1%;
+   left : 50%;
+   background-color : pink;
+   padding : 1%;
+   width : 20%;
+   text-align : left;
+   }
 </style>
 
 <div>
@@ -53,14 +64,30 @@ border-collapse : collapse; text-align : center;}
 		{% endfor %}
 	</table>
 
-  <div class = "addPatient">
-	{{ form_start(formulaireAddPatient) }}
-				{{ form_widget(formulaireAddPatient) }}
-	{{ form_end(formulaireAddPatient) }}
+  <div id = "addPatient">
+		{{ form_start(formulaireAddPatient) }}
+		{{ form_widget(formulaireAddPatient) }}
+		{{ form_end(formulaireAddPatient) }}
 	</div>
 	<form action =" {{path('home_page')}}" method ="post">
 		<button class="disconnectButton" type="submit" name="disconnect">Déconnexion</button>
 	</form>
 
+	<div class = "addMatelas">
+	{{ form_start(formulaireAddMatelas) }}
+							{{ form_widget(formulaireAddMatelas) }}
+	{{ form_end(formulaireAddMatelas) }}
+	</div>
 </div>
+
+<button class="favorite styled" onclick="myFunction()">
+	Add to favorites
+</button>
+
+<script>
+function myFunction() {
+	document.getElementById("addPatient").style["display"] =  "inline-block";
+}
+</script>
+
 {% endblock %}
