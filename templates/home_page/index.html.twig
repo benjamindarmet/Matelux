@@ -12,10 +12,20 @@ border-collapse : collapse; text-align : center;}
 	.tdEntier {color : #000000;}
 
 	 #addPatient{
+	 padding : 1%;
 	 background-color : white;
 	 text-align : left;
 	 position: absolute;
-	 top: 40px; left: 40%;
+	 top: 40px; left: 25%;
+   display: block;
+	 visibility:hidden;
+	 }
+
+	 #addMatelas{
+	 background-color : white;
+	 text-align : left;
+	 position: absolute;
+	 top: 40px; left: 45%;
    display: block;
 	 visibility:hidden;
 	 }
@@ -28,7 +38,7 @@ border-collapse : collapse; text-align : center;}
 			height: 5%;
 	 }
 
-	 .bouton {
+	 #bouton1 {
 	 position: absolute;
 	 top: 40px; left: 40px;
 		padding:6px 0 6px 0;
@@ -41,15 +51,19 @@ border-collapse : collapse; text-align : center;}
 		box-shadow:1px 1px 3px #999;
 	}
 
-   .addMatelas{
-   position : absolute;
-   top : 1%;
-   left : 50%;
-   background-color : pink;
-   padding : 1%;
-   width : 20%;
-   text-align : left;
-   }
+	#bouton2 {
+	position: absolute;
+	top: 90px; left: 40px;
+	 padding:6px 0 6px 0;
+	 font:bold 13px Arial;
+	 background:#f5f5f5;
+	 color:#555;
+	 border-radius:2px;
+	 width:100px;
+	 border:1px solid #ccc;
+	 box-shadow:1px 1px 3px #999;
+ }
+
 </style>
 
 <div>
@@ -87,20 +101,34 @@ border-collapse : collapse; text-align : center;}
 		<button class="disconnectButton" type="submit" name="disconnect">Déconnexion</button>
 	</form>
 
-	<div class = "addMatelas">
+	<div id = "addMatelas">
 	{{ form_start(formulaireAddMatelas) }}
 							{{ form_widget(formulaireAddMatelas) }}
 	{{ form_end(formulaireAddMatelas) }}
 	</div>
 </div>
 
-<button class="bouton" onclick="myFunction()">
+<button id="bouton1" onclick="myFunction1()">
 	Ajout d'un patient
 </button>
 
+<button id="bouton2" onclick="myFunction2()">
+	Ajout d'un matelas
+</button>
+
+
 <script>
-function myFunction() {
+function myFunction1() {
 	var elem = 	document.getElementById("addPatient");
+	if(elem.style.visibility == "visible"){
+		elem.style["visibility"] = "hidden";
+	}else{
+		elem.style["visibility"] = "visible";
+	}
+}
+
+function myFunction2() {
+	var elem = 	document.getElementById("addMatelas");
 	if(elem.style.visibility == "visible"){
 		elem.style["visibility"] = "hidden";
 	}else{
