@@ -7,3 +7,5 @@
 
 
 # app/config/routing.yml
+
+# load some routes - one should ultimately have the path "/app"

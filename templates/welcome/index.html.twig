@@ -1,1 +1,34 @@
 {% extends 'base.html.twig' %}
+
+{% block style %}
+  .container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+
+  font-family: "Arial", Arial, Verdana, Halvetica, Trebuchet MS;
+  font-size: 20px;
+  }
+{% endblock %}
+
+  {% block body %}
+  <div class="container">
+  <span>
+    <form action="{{ path('welcome') }}" method="post">
+      <label for="username">Identité :</label>
+      <input type="text" id="username" name="_username"/>
+
+      {#
+          If you want to control the URL the user
+          is redirected to on success (more details below)
+          <input type="hidden" name="_target_path" value="/account" />
+      #}
+
+      <button type="submit" name="envoi">Entrer</button>
+    </form>
+    </span>
+  </div>
+  {% endblock %}

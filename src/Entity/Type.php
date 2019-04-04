@@ -41,7 +41,7 @@ class Type{
 
 
   public function getId(){
-    return $ths->id;
+    return $this->id;
   }
 
   public function getType(){
