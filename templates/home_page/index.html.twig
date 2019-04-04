@@ -20,6 +20,7 @@ border-collapse : collapse; text-align : center;}
 	 visibility:hidden;
 	 }
 
+<<<<<<< HEAD
 	 .bouton {
 	 position: absolute;
 	 top: 40px; left: 40px;
@@ -32,6 +33,17 @@ border-collapse : collapse; text-align : center;}
 		border:1px solid #ccc;
 		box-shadow:1px 1px 3px #999;
 	}
+=======
+   .addMatelas{
+   position : absolute;
+   top : 1%;
+   left : 50%;
+   background-color : pink;
+   padding : 1%;
+   width : 20%;
+   text-align : left;
+   }
+>>>>>>> 5b90795bc224002c20241558109ceec02f1de693
 </style>
 
 <div>
@@ -64,6 +76,12 @@ border-collapse : collapse; text-align : center;}
 		{{ form_start(formulaireAddPatient) }}
 		{{ form_widget(formulaireAddPatient) }}
 		{{ form_end(formulaireAddPatient) }}
+	</div>
+
+	<div class = "addMatelas">
+	{{ form_start(formulaireAddMatelas) }}
+							{{ form_widget(formulaireAddMatelas) }}
+	{{ form_end(formulaireAddMatelas) }}
 	</div>
 </div>
 

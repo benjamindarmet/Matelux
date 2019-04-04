@@ -7,7 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Patient;
 
-
 class PatientController extends Controller
 {
     /**
