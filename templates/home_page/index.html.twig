@@ -47,11 +47,7 @@ border-collapse : collapse; text-align : center;}
 			height: 5%;
 	 }
 
-<<<<<<< HEAD
 	 .boutonAddPatient{
-=======
-	 #bouton1 {
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 	 position: absolute;
 	 top: 40px; left: 40px;
 		padding:6px 0 6px 0;
@@ -64,7 +60,6 @@ border-collapse : collapse; text-align : center;}
 		box-shadow:1px 1px 3px #999;
 	}
 
-<<<<<<< HEAD
 	.boutonAddMatelas{
 	position: absolute;
 	top: 100px; left: 40px;
@@ -83,21 +78,6 @@ border-collapse : collapse; text-align : center;}
 		 font-family : "Arial";
 		 font-size: 17px;
 	 }
-=======
-	#bouton2 {
-	position: absolute;
-	top: 90px; left: 40px;
-	 padding:6px 0 6px 0;
-	 font:bold 13px Arial;
-	 background:#f5f5f5;
-	 color:#555;
-	 border-radius:2px;
-	 width:100px;
-	 border:1px solid #ccc;
-	 box-shadow:1px 1px 3px #999;
- }
-
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 </style>
 
 <div>
@@ -137,7 +117,6 @@ border-collapse : collapse; text-align : center;}
 	</form>
 
 	<div id = "addMatelas">
-<<<<<<< HEAD
 		{{ form_start(formulaireAddMatelas) }}
 		{{ form_widget(formulaireAddMatelas) }}
 		{{ form_end(formulaireAddMatelas) }}
@@ -145,16 +124,13 @@ border-collapse : collapse; text-align : center;}
 
 	<div class = "UserList">
 	<b>Liste des utilisateurs connectés : {% for u in users %} {{ u.getUsername() }} <i>;</i> {% endfor %} </b>
-=======
 	{{ form_start(formulaireAddMatelas) }}
-							{{ form_widget(formulaireAddMatelas) }}
+	{{ form_widget(formulaireAddMatelas) }}
 	{{ form_end(formulaireAddMatelas) }}
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 	</div>
 
 </div>
 
-<<<<<<< HEAD
 <button class="boutonAddPatient" onclick="hideAddPatient()">
 	Ajout d'un patient
 </button>
@@ -165,19 +141,6 @@ border-collapse : collapse; text-align : center;}
 
 <script>
 function hideAddPatient() {
-=======
-<button id="bouton1" onclick="myFunction1()">
-	Ajout d'un patient
-</button>
-
-<button id="bouton2" onclick="myFunction2()">
-	Ajout d'un matelas
-</button>
-
-
-<script>
-function myFunction1() {
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 	var elem = 	document.getElementById("addPatient");
 	if(elem.style.visibility == "visible"){
 		elem.style["visibility"] = "hidden";
@@ -186,11 +149,7 @@ function myFunction1() {
 	}
 }
 
-<<<<<<< HEAD
 function hideAddMatelas() {
-=======
-function myFunction2() {
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 	var elem = 	document.getElementById("addMatelas");
 	if(elem.style.visibility == "visible"){
 		elem.style["visibility"] = "hidden";
@@ -198,10 +157,6 @@ function myFunction2() {
 		elem.style["visibility"] = "visible";
 	}
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4aa687fe377b007c63773eae055ca624721bbb23
 </script>
 
 

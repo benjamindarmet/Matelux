@@ -31,8 +31,8 @@ class User {
     protected $ip;
 
     /**
-    * @ORM\Column(name="date", type="timestamp", length=255)
-    * @var timestamp
+    * @ORM\Column(name="date", type="string", length=255)
+    * @var string
     */
     protected $date;
 
