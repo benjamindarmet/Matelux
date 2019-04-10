@@ -30,6 +30,12 @@ class User {
     */
     protected $ip;
 
+    /**
+    * @ORM\Column(name="date", type="timestamp", length=255)
+    * @var timestamp
+    */
+    protected $date;
+
     public function __construct($username, $ip){
         $this->username = $username;
         $this->ip = $ip;

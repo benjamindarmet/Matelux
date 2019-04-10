@@ -20,6 +20,15 @@ border-collapse : collapse; text-align : center;}
 	 visibility:hidden;
 	 }
 
+	 #addMatelas{
+	 background-color : white;
+	 text-align : left;
+	 position: absolute;
+	 top: 200px; left: 40%;
+	 display: block;
+	 visibility:hidden;
+	 }
+
 	 .disconnectButton{
 		 position: absolute;
     	top: -80px;
@@ -28,7 +37,7 @@ border-collapse : collapse; text-align : center;}
 			height: 5%;
 	 }
 
-	 .bouton {
+	 .boutonAddPatient{
 	 position: absolute;
 	 top: 40px; left: 40px;
 		padding:6px 0 6px 0;
@@ -41,15 +50,24 @@ border-collapse : collapse; text-align : center;}
 		box-shadow:1px 1px 3px #999;
 	}
 
-   .addMatelas{
-   position : absolute;
-   top : 1%;
-   left : 50%;
-   background-color : pink;
-   padding : 1%;
-   width : 20%;
-   text-align : left;
-   }
+	.boutonAddMatelas{
+	position: absolute;
+	top: 100px; left: 40px;
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#f5f5f5;
+	color:#555;
+	border-radius:2px;
+	width:100px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+	}
+
+	 .UserList{
+		 margin-left : 15px;
+		 font-family : "Arial";
+		 font-size: 17px;
+	 }
 </style>
 
 <div>
@@ -83,23 +101,33 @@ border-collapse : collapse; text-align : center;}
 		{{ form_widget(formulaireAddPatient) }}
 		{{ form_end(formulaireAddPatient) }}
 	</div>
+
 	<form action =" {{path('home_page')}}" method ="post">
 		<button class="disconnectButton" type="submit" name="disconnect">Déconnexion</button>
 	</form>
 
-	<div class = "addMatelas">
-	{{ form_start(formulaireAddMatelas) }}
-							{{ form_widget(formulaireAddMatelas) }}
-	{{ form_end(formulaireAddMatelas) }}
+	<div id = "addMatelas">
+		{{ form_start(formulaireAddMatelas) }}
+		{{ form_widget(formulaireAddMatelas) }}
+		{{ form_end(formulaireAddMatelas) }}
 	</div>
+
+	<div class = "UserList">
+	<b>Liste des utilisateurs connectés : {% for u in users %} {{ u.getUsername() }} <i>;</i> {% endfor %} </b>
+	</div>
+
 </div>
 
-<button class="bouton" onclick="myFunction()">
+<button class="boutonAddPatient" onclick="hideAddPatient()">
 	Ajout d'un patient
 </button>
 
+<button class="boutonAddMatelas" onclick="hideAddMatelas()">
+	Ajout d'un matelas
+</button>
+
 <script>
-function myFunction() {
+function hideAddPatient() {
 	var elem = 	document.getElementById("addPatient");
 	if(elem.style.visibility == "visible"){
 		elem.style["visibility"] = "hidden";
@@ -107,6 +135,16 @@ function myFunction() {
 		elem.style["visibility"] = "visible";
 	}
 }
+
+function hideAddMatelas() {
+	var elem = 	document.getElementById("addMatelas");
+	if(elem.style.visibility == "visible"){
+		elem.style["visibility"] = "hidden";
+	}else{
+		elem.style["visibility"] = "visible";
+	}
+}
+
 </script>
 
 

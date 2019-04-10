@@ -29,7 +29,7 @@ class WelcomeController extends Controller
 
         if($username != ''){
 
-          $newUser = new User($username, $this->getRealIpAddr());
+          $newUser = new User($username, $this->getRealIpAddr(),new \DateTime('now'));
 
           $entityManager->persist($newUser);
 

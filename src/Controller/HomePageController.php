@@ -44,11 +44,14 @@ class HomePageController extends Controller
         }
       }
 
+      $repository = $this->getDoctrine()->getRepository(User::class);
+      $users = $repository->findAll();
+
        //Récupérer la table créée à partir de la classe patient
   	   $repository = $this->getDoctrine()->getRepository(Patient::class);
        $customers = $repository->findAll();
 
-       //Créer le formulaire addPAtient à partir de classe patient
+       //Créer le formulaire addPatient à partir de classe patient
        $patient = new Patient();
        $form = $this->createFormBuilder($patient)
           ->add('nip', IntegerType::class)
@@ -60,7 +63,7 @@ class HomePageController extends Controller
           ->add('mattress', IntegerType::class)
           ->add('type', IntegerType::class)
 
-          ->add('Ajouter patient', SubmitType::class, ['label' => 'Valider'])
+          ->add('Ajouter patient', SubmitType::class, ['label' => 'Add Patient'])
           ->getForm();
 
       $form->handleRequest($request);
@@ -92,12 +95,14 @@ class HomePageController extends Controller
         $em->persist($data);
         $em->flush();
       }
+
       //return
-          return $this->render('home_page/index.html.twig',
-          array('customers' => $customers,
-          'formulaireAddPatient' => $form->createView(),
-          'formulaireAddMatelas' => $formAddMatelas->createView())
-        );
+      return $this->render('home_page/index.html.twig',
+                    array('customers' => $customers,
+                    'formulaireAddPatient' => $form->createView(),
+                    'formulaireAddMatelas' => $formAddMatelas->createView(),
+                    'users' => $users)
+                  );
     }
 
     function getRealIpAddr() {
