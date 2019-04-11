@@ -70,6 +70,9 @@ class User {
         return $this;
     }
 
+public function getDate(){
+  return $this->date;
+}
     /**
      * {@inheritdoc}
      */

@@ -43,7 +43,10 @@ class HomePageController extends Controller
           return $this->redirectToRoute('welcome');
         }
       }
-
+      $user = array($this->getDoctrine()
+        ->getRepository(User::class)
+        ->findOneBy(['ip' => $this->getRealIpAddr()]));
+  
       $repository = $this->getDoctrine()->getRepository(User::class);
       $users = $repository->findAll();
 
@@ -101,7 +104,8 @@ class HomePageController extends Controller
                     array('customers' => $customers,
                     'formulaireAddPatient' => $form->createView(),
                     'formulaireAddMatelas' => $formAddMatelas->createView(),
-                    'users' => $users)
+                    'users' => $users,
+                   'user' => $user)
                   );
     }
 
