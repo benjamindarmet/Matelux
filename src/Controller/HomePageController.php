@@ -63,7 +63,7 @@ class HomePageController extends Controller
           ->add('mattress', IntegerType::class)
           ->add('type', IntegerType::class)
 
-          ->add('Ajouter patient', SubmitType::class, ['label' => 'Add Patient'])
+          ->add('submit', SubmitType::class, ['label' => 'Add Patient'])
           ->getForm();
 
       $form->handleRequest($request);
@@ -83,7 +83,7 @@ class HomePageController extends Controller
         ->add('state', TextType::class)
         ->add('commissioning', TextType::class)
 
-        ->add('Ajouter matelas', SubmitType::class,  ['label' => 'Add Matelas'])
+        ->add('submit', SubmitType::class,  ['label' => 'Add Matelas'])
         ->getForm();
 
       $formAddMatelas->handleRequest($request);

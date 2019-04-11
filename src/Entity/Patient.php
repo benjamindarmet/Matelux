@@ -17,16 +17,16 @@ class Patient{
   protected $nip;
 
   /**
-    * @ORM\Column(type="string", length=255)
+    * @ORM\Column(type="datetime")
     *
-    * @var string
+    * @var datetime
     */
   protected $date_first_scanner;
 
   /**
-    * @ORM\Column(type="string", length=255)
+    * @ORM\Column(type="datetime")
     *
-    * @var string
+    * @var datetime
     */
   protected $mep;
 
@@ -38,9 +38,9 @@ class Patient{
   protected $number_seance;
 
   /**
-    * @ORM\Column(type="string", length=255)
+    * @ORM\Column(type="datetime")
     *
-    * @var string
+    * @var datetime
     */
   protected $ftr;
 

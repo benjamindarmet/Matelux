@@ -11,31 +11,44 @@ border-collapse : collapse; text-align : center;}
 	.tdDate {color : #000000;}
 	.tdEntier {color : #000000;}
 
+	 .lineForm{
+	 clear: both;
+	 padding-top : 5%;
+	 }
+
+	 .label{
+	 display : inline;
+	 text-align : center;
+	 float : left;
+	 padding-top : 2%;
+	 }
+
+	 .widget{
+	 display : inline;
+	 float : right;
+	 }
+
+	 .submitButton{
+	 margin-left:35%;
+	 }
+
 	 #addPatient{
-	 padding : 1%;
+	 padding:1%;
 	 background-color : white;
-	 text-align : left;
 	 position: absolute;
-	 top: 40px; left: 25%;
-   display: block;
+	 top: 10%; left: 40%;
+	 width:20%;
+	 height:50%;
 	 visibility:hidden;
 	 }
 
 	 #addMatelas{
+	 padding:1%;
 	 background-color : white;
-	 text-align : left;
 	 position: absolute;
-	 top: 40px; left: 45%;
-   display: block;
-	 visibility:hidden;
-	 }
-
-	 #addMatelas{
-	 background-color : white;
-	 text-align : left;
-	 position: absolute;
-	 top: 200px; left: 40%;
-	 display: block;
+	 top: 10%; left: 40%;
+	 width:20%;
+	 height:30%;
 	 visibility:hidden;
 	 }
 
@@ -95,10 +108,10 @@ border-collapse : collapse; text-align : center;}
 		{% for c in customers %}
 		<tr>
 			<td class = "tdEntier">{{ c.getNip() }}</td>
-			<td class = "tdDate">{{ c.getDateFirstScanner() }}</td>
-			<td class = "tdDate">{{ c.getMep() }}</td>
+			<td class = "tdDate">{{ c.getDateFirstScanner().format('Y-m-d') }}</td>
+			<td class = "tdDate">{{ c.getMep().format('Y-m-d') }}</td>
 			<td class = "tdEntier">{{ c.getNumberSeance() }}</td>
-			<td class = "tdDate">{{ c.getFtr() }}</td>
+			<td class = "tdDate">{{ c.getFtr().format('Y-m-d') }}</td>
 			<td class = "tdTexte">{{ c.getComment() }}</td>
 			<td class = "tdEntier">{{ c.getMattress() }}</td>
 			<td class = "tdEntier">{{ c.getType() }}</td>
@@ -108,7 +121,34 @@ border-collapse : collapse; text-align : center;}
 
   <div id = "addPatient">
 		{{ form_start(formulaireAddPatient) }}
-		{{ form_widget(formulaireAddPatient) }}
+
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.nip) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.nip) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.date_first_scanner) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.date_first_scanner) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.mep) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.mep) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.number_seance) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.number_seance) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.ftr) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.ftr) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.comment) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.comment) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.mattress) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.mattress) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddPatient.type) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddPatient.type) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="submitButton">{{ form_widget(formulaireAddPatient.submit) }}</div></div>
+		</br>
+
 		{{ form_end(formulaireAddPatient) }}
 	</div>
 
@@ -116,11 +156,28 @@ border-collapse : collapse; text-align : center;}
 		<button class="disconnectButton" type="submit" name="disconnect">Déconnexion</button>
 	</form>
 
+
 	<div id = "addMatelas">
 		{{ form_start(formulaireAddMatelas) }}
-		{{ form_widget(formulaireAddMatelas) }}
+
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddMatelas.type) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddMatelas.type) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddMatelas.status) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddMatelas.status) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddMatelas.state) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddMatelas.state) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="label">{{ form_label(formulaireAddMatelas.commissioning) }} :</div>
+		<div class="widget">{{ form_widget(formulaireAddMatelas.commissioning) }}</div></div>
+		</br>
+		<div class="lineForm"><div class="submitButton">{{ form_widget(formulaireAddMatelas.submit) }}</div></div>
+		</br>
+
 		{{ form_end(formulaireAddMatelas) }}
 	</div>
+
 
 	<div class = "UserList">
 	<b>Liste des utilisateurs connectés : {% for u in users %} {{ u.getUsername() }} <i>;</i> {% endfor %} </b>
@@ -141,20 +198,24 @@ border-collapse : collapse; text-align : center;}
 
 <script>
 function hideAddPatient() {
-	var elem = 	document.getElementById("addPatient");
-	if(elem.style.visibility == "visible"){
-		elem.style["visibility"] = "hidden";
+	var patient = document.getElementById("addPatient");
+	var matelas = document.getElementById("addMatelas");
+	if(patient.style.visibility == "visible"){
+		patient.style["visibility"] = "hidden";
 	}else{
-		elem.style["visibility"] = "visible";
+		patient.style["visibility"] = "visible";
+		matelas.style["visibility"] = "hidden";
 	}
 }
 
 function hideAddMatelas() {
-	var elem = 	document.getElementById("addMatelas");
-	if(elem.style.visibility == "visible"){
-		elem.style["visibility"] = "hidden";
+	var matelas = 	document.getElementById("addMatelas");
+	var patient = document.getElementById("addPatient");
+	if(matelas.style.visibility == "visible"){
+		matelas.style["visibility"] = "hidden";
 	}else{
-		elem.style["visibility"] = "visible";
+		matelas.style["visibility"] = "visible";
+		patient.style["visibility"] = "hidden";
 	}
 }
 </script>
