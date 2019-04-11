@@ -92,8 +92,31 @@ border-collapse : collapse; text-align : center;}
 		 font-size: 17px;
 	 }
 </style>
-
 <div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+var doStuff = function () {
+	var u =$("#username").text();
+	var d = new Date($("#lmodified").text());
+	var startTime = new Date();
+	var diff=startTime.getTime()-d.getTime();
+	if(diff/1000>60*30){
+			$(".disconnectButton").click();
+	}
+
+};
+setInterval(doStuff, 1000);
+
+
+</script>
+
+{% for c in user %}
+
+<div id="username" style="display:none">{{ c.getUsername() }}</div>
+<div id="lmodified" style="display:none">{{c.getDate() }}</div>
+{% endfor %}
+
 	<table class = "tableCSS">
 		<tr>
 			<td class = "tdEntier">NIP</td>
