@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Patient;
 use App\Entity\User;
 use App\Entity\Mattress;
+use App\Entity\Type;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -46,7 +47,7 @@ class HomePageController extends Controller
       $user = array($this->getDoctrine()
         ->getRepository(User::class)
         ->findOneBy(['ip' => $this->getRealIpAddr()]));
-  
+
       $repository = $this->getDoctrine()->getRepository(User::class);
       $users = $repository->findAll();
 
@@ -64,7 +65,7 @@ class HomePageController extends Controller
           ->add('ftr', DateType::class, ['widget' => 'single_text'])
           ->add('comment', TextType::class)
           ->add('mattress', IntegerType::class)
-          ->add('type', IntegerType::class)
+          ->add('type', TextType::class)
 
           ->add('submit', SubmitType::class, ['label' => 'Add Patient'])
           ->getForm();
@@ -99,11 +100,28 @@ class HomePageController extends Controller
         $em->flush();
       }
 
+      //Créer le formulaire addMatelasType à partir de la classe Type
+      $type = new Type();
+      $formAddMatelasType = $this->createFormBuilder($type)
+        ->add('type', TextType::class)
+        ->add('submit', SubmitType::class,  ['label' => 'Add Type'])
+        ->getForm();
+
+      $formAddMatelasType->handleRequest($request);
+      if($formAddMatelasType->isSubmitted() && $formAddMatelasType->isValid())
+      {
+        $data = $formAddMatelasType->getData();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($data);
+        $em->flush();
+      }
+
       //return
       return $this->render('home_page/index.html.twig',
                     array('customers' => $customers,
                     'formulaireAddPatient' => $form->createView(),
                     'formulaireAddMatelas' => $formAddMatelas->createView(),
+                    'formulaireAddMatelasType' => $formAddMatelasType->createView(),
                     'users' => $users,
                    'user' => $user)
                   );

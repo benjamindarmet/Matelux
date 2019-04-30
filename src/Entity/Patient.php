@@ -59,9 +59,9 @@ class Patient{
   protected $mattress;
 
   /**
-    * @ORM\Column(type="integer", length=11)
+    * @ORM\Column(type="string", length=255)
     *
-    * @var integer
+    * @var string
     */
   protected $type;
 

@@ -52,6 +52,16 @@ border-collapse : collapse; text-align : center;}
 	 visibility:hidden;
 	 }
 
+	 #addMatelasType{
+	 padding:1%;
+	 background-color : white;
+	 position: absolute;
+	 top: 10%; left: 40%;
+	 width:15%;
+	 height:11%;
+	 visibility:hidden;
+	 }
+
 	 .disconnectButton{
 		 position: absolute;
     	top: -80px;
@@ -86,6 +96,19 @@ border-collapse : collapse; text-align : center;}
 	box-shadow:1px 1px 3px #999;
 	}
 
+	.boutonAddMatelasType{
+	position: absolute;
+	top: 160px; left: 40px;
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#f5f5f5;
+	color:#555;
+	border-radius:2px;
+	width:100px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+	}
+
 	 .UserList{
 		 margin-left : 15px;
 		 font-family : "Arial";
@@ -95,29 +118,7 @@ border-collapse : collapse; text-align : center;}
 <div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-var doStuff = function () {
-	var u =$("#username").text();
-	var d = new Date($("#lmodified").text());
-	var startTime = new Date();
-	var diff=startTime.getTime()-d.getTime();
-	if(diff/1000>60*30){
-			$(".disconnectButton").click();
-	}
-
-};
-setInterval(doStuff, 1000);
-
-
-</script>
-
-{% for c in user %}
-
-<div id="username" style="display:none">{{ c.getUsername() }}</div>
-<div id="lmodified" style="display:none">{{c.getDate() }}</div>
-{% endfor %}
-
-	<table class = "tableCSS">
+<table class = "tableCSS">
 		<tr>
 			<td class = "tdEntier">NIP</td>
 			<td class = "tdDate">Premier scanner</td>
@@ -141,6 +142,26 @@ setInterval(doStuff, 1000);
 		</tr>
 		{% endfor %}
 	</table>
+
+<script>
+var doStuff = function () {
+	var u =$("#username").text();
+	var d = new Date($("#lmodified").text());
+	var startTime = new Date();
+	var diff=startTime.getTime()-d.getTime();
+	if(diff/1000>60*30){
+			$(".disconnectButton").click();
+	}
+
+};
+setInterval(doStuff, 1000);
+</script>
+
+{% for c in user %}
+
+<div id="username" style="display:none">{{ c.getUsername() }}</div>
+<div id="lmodified" style="display:none">{{c.getDate() }}</div>
+{% endfor %}
 
   <div id = "addPatient">
 		{{ form_start(formulaireAddPatient) }}
@@ -201,6 +222,13 @@ setInterval(doStuff, 1000);
 		{{ form_end(formulaireAddMatelas) }}
 	</div>
 
+	<div id = "addMatelasType">
+			{{ form_start(formulaireAddMatelasType) }}
+			<div class="lineForm"><div class="label">{{ form_label(formulaireAddMatelasType.type) }} :</div>
+			<div class="widget">{{ form_widget(formulaireAddMatelasType.type) }}</div></div>
+			</br>
+			<div class="lineForm"><div class="submitButton">{{ form_widget(formulaireAddMatelasType.submit) }}</div></div>
+		</div>
 
 	<div class = "UserList">
 	<b>Liste des utilisateurs connectés : {% for u in users %} {{ u.getUsername() }} <i>;</i> {% endfor %} </b>
@@ -219,30 +247,49 @@ setInterval(doStuff, 1000);
 	Ajout d'un matelas
 </button>
 
+<button class="boutonAddMatelasType" onclick="hideAddMatelasType()">
+	Ajout d'un type de matelas
+</button>
+
 <script>
 function hideAddPatient() {
 	var patient = document.getElementById("addPatient");
 	var matelas = document.getElementById("addMatelas");
+	var type = document.getElementById("addMatelasType");
 	if(patient.style.visibility == "visible"){
 		patient.style["visibility"] = "hidden";
 	}else{
 		patient.style["visibility"] = "visible";
 		matelas.style["visibility"] = "hidden";
+		type.style["visibility"] = "hidden";
 	}
 }
 
 function hideAddMatelas() {
 	var matelas = 	document.getElementById("addMatelas");
 	var patient = document.getElementById("addPatient");
+		var type = document.getElementById("addMatelasType");
 	if(matelas.style.visibility == "visible"){
 		matelas.style["visibility"] = "hidden";
 	}else{
 		matelas.style["visibility"] = "visible";
 		patient.style["visibility"] = "hidden";
+		type.style["visibility"] = "hidden";
+	}
+}
+
+function hideAddMatelasType() {
+	var type = 	document.getElementById("addMatelasType");
+	var matelas = 	document.getElementById("addMatelas");
+	var patient = document.getElementById("addPatient");
+	if(type.style.visibility == "visible"){
+		type.style["visibility"] = "hidden";
+	}else{
+		type.style["visibility"] = "visible";
+		matelas.style["visibility"] = "hidden";
+		patient.style["visibility"] = "hidden";
 	}
 }
 </script>
-
-
 
 {% endblock %}

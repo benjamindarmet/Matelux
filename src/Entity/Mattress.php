@@ -16,9 +16,9 @@ class Mattress{
   private $id;
 
   /**
-    * @ORM\Column(type="integer", length=11)
+    * @ORM\Column(type="string", length=255)
     *
-    * @var integer
+    * @var string
     */
   private $type;
 
